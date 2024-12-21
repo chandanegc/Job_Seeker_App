@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.article`
   background: var(--background-secondary-color);
@@ -13,6 +13,23 @@ const Wrapper = styled.article`
     grid-template-columns: auto 1fr;
     align-items: center;
   }
+
+  .content-center {
+    display: flex;
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    align-items: center;
+    @media (min-width: 576px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
   .main-icon {
     width: 60px;
     height: 60px;
@@ -40,17 +57,7 @@ const Wrapper = styled.article`
   .content {
     padding: 1rem 1.5rem;
   }
-  .content-center {
-    display: grid;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    grid-template-columns: 1fr;
-    row-gap: 1.5rem;
-    align-items: center;
-    @media (min-width: 576px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+
   .status {
     border-radius: var(--border-radius);
     text-transform: capitalize;

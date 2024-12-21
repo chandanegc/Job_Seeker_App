@@ -2,7 +2,7 @@ import { body, validationResult ,param } from 'express-validator';
 import { BadRequestError, UnauthorizedError } from '../CustomError/customError.js';
 import { JOB_STATUS, JOB_TYPE } from '../utils/constants.js';
 import mongoose from 'mongoose';
-import Job from '../Models/JobModel.js';
+import Doc from '../Models/DocModel.js';
 import User from "../Models/UserModel.js"
 
 
@@ -51,7 +51,7 @@ export const validateIdParam = withValidationErrors([
   param('id').custom(async (value, { req }) => {
     const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidMongoId) throw new BadRequestError('invalid MongoDB id');
-    const job = await Job.findById(value);
+    const job = await Doc.findById(value);
     if (!job) throw new NotFoundError(`no job with id ${value}`);
     const isAdmin = req.user.role === 'admin';
     const isOwner = req.user.userId === job.createdBy.toString();

@@ -2,7 +2,7 @@ import 'express-async-errors';
 import express from 'express';
 const app = express();
 import mongoose from "mongoose";
-import jobRouter from './Router/jobRouter.js';
+import jobRouter from './Router/docRouter.js';
 import errorHandlerMiddleware from './Middleware/ErrorHandler.js';
 import authRouter from './Router/authRouter.js';
 import cookieParser from 'cookie-parser';

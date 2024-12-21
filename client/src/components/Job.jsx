@@ -8,29 +8,23 @@ day.extend(advancedFormat);
 
 const Job = ({
   _id,
-  position,
-  company,
-  jobLocation,
-  jobType,
-  createdAt,
-  jobStatus,
+  documentName,
+  number,
+  avatar,
 }) => {
-  const date = day(createdAt).format('MMM Do, YYYY');
+  // const date = day(createdAt).format('MMM Do, YYYY');
   return (
     <Wrapper>
       <header>
-        <div className='main-icon'>{company.charAt(0)}</div>
+        <div className='main-icon'>{documentName.charAt(0)}</div>
         <div className='info'>
-          <h5>{position}</h5>
-          <p>{company}</p>
+          <h5>{documentName}</h5>
+          <p>{number}</p>
         </div>
       </header>
       <div className='content'>
-        <div className='content-center'>
-          <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
-          <JobInfo icon={<FaCalendarAlt />} text={date} />
-          <JobInfo icon={<FaBriefcase />} text={jobType} />
-          <div className={`status ${jobStatus}`}>{jobStatus}</div>
+        <div className='content-center'> 
+            <img src={avatar} alt={documentName} height={"300px"} style={{ display: 'block', margin: '0 auto', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }} />
         </div>
         <footer className='actions'>
           <Link to={`../edit-job/${_id}`} className='btn edit-btn'>

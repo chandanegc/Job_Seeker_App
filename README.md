@@ -2047,7 +2047,7 @@ app.get('/api/v1/jobs/:id', (req, res) => {
 
 setup controllers and router
 
-controllers/jobController.js
+controllers/DocController.js
 
 ```js
 import { nanoid } from 'nanoid';
@@ -2112,7 +2112,7 @@ export const deleteJob = async (req, res) => {
 };
 ```
 
-routes/jobRouter.js
+routes/docRouter.js
 
 ```js
 import { Router } from 'express';
@@ -2124,7 +2124,7 @@ import {
   createJob,
   updateJob,
   deleteJob,
-} from '../controllers/jobController.js';
+} from '../controllers/DocController.js';
 
 // router.get('/', getAllJobs);
 // router.post('/', createJob);
@@ -2138,7 +2138,7 @@ export default router;
 server.js
 
 ```js
-import jobRouter from './routers/jobRouter.js';
+import jobRouter from './routers/docRouter.js';
 app.use('/api/v1/jobs', jobRouter);
 ```
 
@@ -2212,7 +2212,7 @@ export default mongoose.model('Job', JobSchema);
 
 #### Create Job
 
-jobController.js
+DocController.js
 
 ```js
 import Job from '../models/JobModel.js';
@@ -2226,7 +2226,7 @@ export const createJob = async (req, res) => {
 
 #### Try / Catch
 
-jobController.js
+DocController.js
 
 ```js
 export const createJob = async (req, res) => {
@@ -2258,7 +2258,7 @@ npm i express-async-errors@3.1.1
 import 'express-async-errors';
 ```
 
-jobController.js
+DocController.js
 
 ```js
 export const createJob = async (req, res) => {
@@ -2271,7 +2271,7 @@ export const createJob = async (req, res) => {
 
 #### Get All Jobs
 
-jobController.js
+DocController.js
 
 ```js
 export const getAllJobs = async (req, res) => {
@@ -2295,7 +2295,7 @@ export const getJob = async (req, res) => {
 
 #### Delete Job
 
-jobController.js
+DocController.js
 
 ```js
 export const deleteJob = async (req, res) => {
@@ -2351,7 +2351,7 @@ npm i http-status-codes@2.2.0
 
 - refactor 200 response in all controllers
 
-jobController.js
+DocController.js
 
 ```js
 res.status(StatusCodes.OK).json({ jobs });
@@ -2410,7 +2410,7 @@ By creating a custom error class like NotFoundError, you can provide more specif
 
 #### Custom Error
 
-jobController.js
+DocController.js
 
 ```js
 import { NotFoundError } from '../customErrors.js';
@@ -3209,7 +3209,7 @@ export const authenticateUser = async (req, res, next) => {
 };
 ```
 
-jobController.js
+DocController.js
 
 ```js
 export const getAllJobs = async (req, res) => {
@@ -3221,7 +3221,7 @@ export const getAllJobs = async (req, res) => {
 
 #### Refactor Create Job
 
-jobController.js
+DocController.js
 
 ```js
 export const createJob = async (req, res) => {
@@ -5248,7 +5248,7 @@ try {
 - setup route and thunder client
 - install/setup dayjs on the server
 
-jobController.js
+DocController.js
 
 ```js
 import mongoose from 'mongoose';
@@ -5285,7 +5285,7 @@ export const showStats = async (req, res) => {
 
 The MongoDB aggregation pipeline is like a factory line for data. Data enters, it goes through different stages like cleaning, sorting, or grouping, and comes out at the end changed in some way. It's a way to process data inside MongoDB.
 
-jobController.js
+DocController.js
 
 ```js
 export const showStats = async (req, res) => {
@@ -5577,7 +5577,7 @@ export default Wrapper;
 
 #### Get All Jobs - Server
 
-jobController.js
+DocController.js
 
 Query parameters, also known as query strings or URL parameters, are used to pass information to a web server through the URL of a webpage. They are typically appended to the end of a URL after a question mark (?) and separated by ampersands (&). Query parameters consist of a key-value pair, where the key represents the parameter name and the value represents the corresponding data being passed. They are commonly used in web applications to provide additional context or parameters for server-side processing or to filter and sort data.
 

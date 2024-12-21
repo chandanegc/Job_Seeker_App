@@ -1,8 +1,9 @@
-import { Logo, FormRow } from '../components';
+import { FormRow } from '../components';
 import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
 import { Form ,Link, redirect , useNavigation } from 'react-router-dom';
 import customFetch from "../utils/customFetch"
 import { toast } from 'react-toastify';
+import { SmallLogo } from '../components/Logo';
 
 export const action = async({request})=>{
   const formData = await request.formData();
@@ -25,7 +26,7 @@ const Register = () => {
   return (
     <Wrapper>
       <Form method='post' className='form'>
-        <Logo /> 
+        <SmallLogo /> 
         <h4>Register</h4>
         <FormRow type='text' name='name' />
         <FormRow type='text' name='lastName' labelText='last name' />
