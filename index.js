@@ -34,14 +34,8 @@ app.get('*', (req, res) => {
 });
 
 
-cloudinary.config({
-  cloud_name: 'dwv1qch0y',
-  api_key: '655938423713366',
-  api_secret: 'UNoANjsbKZD6Q41qTwqtm32LluE'
-});
-
 try {
-    mongoose.connect("mongodb+srv://jobtracker:BBBlMdnCSQMBKbFt@cluster0.kioi2eo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    mongoose.connect();
     // mongoose.connect("mongodb://127.0.0.1:27017/JonSeeker");
     app.listen(process.env.PORT || 5100 , () => {
       console.log('server running.... 5100');
